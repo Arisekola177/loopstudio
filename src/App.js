@@ -1,24 +1,25 @@
-
-import Creation from "./components/Creation";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Home from "./Pages/Home";
+import Services from "./Pages/Services";
+import {Route, Routes, BrowserRouter} from 'react-router-dom'
 import Navbar from "./components/Navbar";
-import Vr from "./components/Vr";
+import Footer from "./components/Footer";
+
 
 function App() {
   return (
-    <div className="w-full" >
-      <div className="relative">
-      <Hero />
-      <div className="absolute top-0 left-0 right-0">
-      <Navbar />
-      </div>
-      </div>
-      <Vr/>
-      <Creation />
-     
-     <Footer/>
-    
+    <div>
+      <BrowserRouter>
+     <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+      </BrowserRouter>
     </div>
   );
 }
